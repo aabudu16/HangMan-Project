@@ -60,7 +60,7 @@ ________
 ======\u{1F525}
 """
 
-
+var lettersOfTheAlphabets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1"]
 var repeatedCharacters = [String]()
 var game = true
 var chancesLeft = 6
@@ -93,6 +93,13 @@ func hangMan() {
     while game == true {
         let userInput = getinput()
         
+
+      // makes sure the user only enters character and not numbers or characters
+        if !lettersOfTheAlphabets.contains(userInput!){
+            print("\(userInput!) is not a valid Character")
+            continue
+        }
+        // checks to see if a charscter is being dubilcated by the user
         if lettersTried.contains(userInput!){
             print("you have used \(userInput!) already. please use try again")
             continue
